@@ -1,20 +1,19 @@
-<!-- App.vue -->
+<template>
+    <div>
+        <Hello/>
+    </div>
+</template>
 
 <script>
-// Import the Hello component from './components/Hello.vue'
-import Background from './components/Background.vue';
-// Export the App component
+import Hello from './components/Hello.vue'
 export default {
     name: 'App', // Component name
     components: {
-        Background,
+        Hello,
     }
 }
 </script>
 
-<template>
-    <Background />
-</template>
+
 <style>
-/* Your styles go here */
 </style>
