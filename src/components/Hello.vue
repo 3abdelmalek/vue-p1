@@ -1,5 +1,5 @@
 <template>
-<div :class="[`container bg-${theme} p-2 w-100`]">
+<div :class="[`container bg-${theme} p-2 w-100`] ">
     <nav :class="[`bg-${theme}`, `navbar-${theme}`]" class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Meat-Store</a>
@@ -16,8 +16,8 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- To Print All Page In NavBar From Array Of Objects -->
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li v-for="(navbarAtt, index) in navbarAtts" class="nav-item" :key="index">
-                        <a class="nav-link" aria-current="page" :href="navbarAtt.lnk">{{ navbarAtt.name }}</a>
+                    <li  v-for="(navbarAtt, index) in navbarAtts" class="nav-item" :key="index">
+                        <a :title="[`${navbarAtt.lnk}`]" @click.prevent="activePage = index" class="nav-link" aria-current="page" href="#">{{ navbarAtt.name }}</a>
                     </li>
                 </ul>
 
@@ -29,26 +29,11 @@
         </div>
     </nav>
 
-    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="https://picsum.photos/id/222/200" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="https://picsum.photos/id/239/200" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="https://picsum.photos/id/200/200" class="d-block w-100" alt="...">
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden"></span>
-        </button>
+    <div class="heightP container text-dark">
+        <h1><u>{{ navbarAtts[activePage].name }} :</u></h1>
+        <ul>
+            <li><h6>Link Of Present Page Is ==>  {{ navbarAtts[activePage].lnk }} .</h6></li>
+        </ul>
     </div>
 
     <div class="input-group flex-nowrap my-2">
@@ -70,6 +55,7 @@ export default {
     name: 'Hello',
     data() {
         return {
+            activePage: 0,
             name: '',
             lnk: '',
             theme: 'light',
@@ -111,4 +97,9 @@ export default {
 </script>
 
 <style>
+.heightP {
+    height: 50vh;
+    border: 2px solid black;
+    border-radius: 4px;
+}
 </style>
