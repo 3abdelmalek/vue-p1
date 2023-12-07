@@ -29,7 +29,7 @@
         </div>
     </nav>
 
-    <div class="heightP container text-dark">
+    <div :class="[`text-${nextTheme()}`]" class="heightP container">
         <h1><u>{{ navbarAtts[activePage].name }} :</u></h1>
         <ul>
             <li><h6>Link Of Present Page Is ==>  {{ navbarAtts[activePage].lnk }} .</h6></li>
